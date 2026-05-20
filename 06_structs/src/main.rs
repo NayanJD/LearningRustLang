@@ -50,14 +50,14 @@ fn main() {
     let mut user2 = build_user(String::from("dastms1@gmail.com"), String::from("nayan"));
 
     // struct update syntax to create another concrete value from existing concrete value.
-    // The ..user2 must come last. Also, user1.username has been moved to user2.username. Hence,
-    // We cannot use user1 as whole. However, user1.email is valid. Check line  39
+    // The ..user2 must come last. Also, user2.username has been moved to user3.username. Hence,
+    // We cannot use user2 as whole. However, user2.email is valid. Check line  39
     let mut user3 = User {
         email: String::from("dastms2@gmail.com"),
         ..user2
     };
 
-    // let email = user2.username;
+    //let email = user2.username;
 
     // Each struct you define is its own type, even though the fields within the struct might have the same types.
     // That is, a function that takes a parameter of type Color cannot take a Point as an argument,

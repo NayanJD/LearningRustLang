@@ -1,5 +1,8 @@
 use std::collections::HashMap;
-
+    
+// This works because scalar values like i32, f64, bool etc implement Copy trait and hence
+// trivially copied on assignment. Any custom type can implement this trait but should not have
+// any type that implements Drop
 fn main() {
     let v: Vec<i32> = Vec::new();
 

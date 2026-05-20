@@ -13,22 +13,22 @@ fn main() {
 
     let mut s4 = String::from("A string");
 
-    // s4.push_str(" another one");
+    //s4.push_str(" another one"); // This will work since s4 is mutable
 
-    // change(&mut s4);
+    //change(&mut s4);
 
     let r1 = &s4;
     let r2 = &s4;
     // In line 23, Two mutable references not allowed since r1 and r2 are being used in
-    // line 24. If the println! is not used in line 24, this line would have been
+    // line 24. If the println! is not used in line 26, this line would have been
     // valid.
-    // let r3 = &mut s4;
+     //let r3 = &mut s4;
     println!("r1: {r1}, r2: {r2}, s4: {s4}");
 
     // IMP: Note that a reference’s scope starts from where it is introduced and continues through the last time that reference is used.
     // and that's why we can create a mutable reference here since r2 and r1 are out of scope.
     let r3 = &mut s4;
-    // let r4 = &mut s4;
+    //let r4 = &mut s4;
 
     println!("r3: {r3}");
 
@@ -42,6 +42,14 @@ fn main() {
     // s5.clear(); // This is not allowed since immutable borrow occurred in line 38 and 40
 
     println!("First word: {word}");
+
+    let x = 5;
+    let y = x;
+
+    // This works because scalar values like i32, f64, bool etc implement Copy trait and hence
+    // trivially copied on assignment. Any custom type can implement this trait but should not have
+    // any type that implements Drop.
+    println!("x: {x}, y: {y}");
 }
 
 fn gives_ownership() -> String {

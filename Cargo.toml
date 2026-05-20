@@ -1,0 +1,17 @@
+[workspace]
+members = [
+    "00_hello_cargo",
+    "02_guessing_game",
+    "03_branches",
+    "04_control_flows",
+    "05_ownership",
+    "06_structs",
+    "07_enums",
+    "08_restaurant",
+    "09_collections",
+    "10_error_handling",
+    "11_generics",
+    "12_automated_tests",
+    "16_smart_pointers",
+]
+resolver = "2"
