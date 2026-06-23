@@ -10,8 +10,8 @@ members = [
     "08_restaurant",
     "09_collections",
     "10_error_handling",
-    "11_generics",
-    "12_automated_tests",
+    "10__generics",
+    "12__automated_tests",
     "16_smart_pointers",
 ]
 resolver = "2"
