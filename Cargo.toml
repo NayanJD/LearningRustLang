@@ -9,9 +9,9 @@ members = [
     "07_enums",
     "07__packages",
     "08__collections",
-    "10_error_handling",
+    "09__error_handling",
     "10__generics",
     "12__automated_tests",
-    "16_smart_pointers", 
+    "16_smart_pointers",  
 ]
 resolver = "2"
