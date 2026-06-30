@@ -8,11 +8,10 @@ members = [
     "06_structs",
     "07_enums",
     "07__packages",
-    "08_restaurant",
-    "09_collections",
+    "08__collections",
     "10_error_handling",
     "10__generics",
     "12__automated_tests",
-    "16_smart_pointers",
+    "16_smart_pointers", 
 ]
 resolver = "2"
