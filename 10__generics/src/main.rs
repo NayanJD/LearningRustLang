@@ -4,7 +4,7 @@ use generics::{NewsArticleWithDefaultSummary, SocialPost, Summary, SummaryWithDe
 
 struct Point<T, U> {
     x: T,
-    // y: T  // This line wont allow line 26.
+    // y: T  // This line wont allow line 64.
     y: U,
 }
 
@@ -31,7 +31,8 @@ impl Point<f32, f32> {
     }
 }
 
-// This annotation 'a means an instance of ImportantExcerpt can’t outlive the reference it holds in its part field.
+// To use references in a struct's fields, we need to specify lifetimes. This annotation
+// 'a means an instance of ImportantExcerpt can’t outlive the reference it holds in its part field.
 struct ImportantExcerpt<'a> {
     part: &'a str,
 }
@@ -43,6 +44,7 @@ impl<'a> ImportantExcerpt<'a> {
     }
 }
 
+// The lifetime parameter need to be declared here since we used a reference field
 impl<'a> ImportantExcerpt<'a> {
     // Third rule applies here and the ouput &str is assigned the lifetime of
     // &self
@@ -219,7 +221,10 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     }
 }
 
-// fn test<'b>() -> &'b ImportantExcerpt {
+// This function does not work even after adding a lifetime 'a  because part is a reference. It's
+// value is invalid after test function's scope. Even if we move i when we return the value, part
+// still is a reference to a locally created value.
+// fn test<'a>() -> ImportantExcerpt<'a> {
 //     let novel = String::from("Call me Ishmael. Some years ago...");
 //     let first_sentence = novel.split('.').next().unwrap();
 //
@@ -227,7 +232,7 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
 //         part: first_sentence,
 //     };
 //
-//     &i
+//     i
 // }
 
 // This is check whether the lifetime error occurs based on signature of the function.
